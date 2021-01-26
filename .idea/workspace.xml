@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="64fd7f1e-f158-43ab-9e12-7ca664d3672d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1nKFT9iblCoGOLD1U7IHIPtiJf7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64fd7f1e-f158-43ab-9e12-7ca664d3672d" name="Default Changelist" comment="" />
+      <created>1611130881010</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611130881010</updated>
+      <workItem from="1611130882031" duration="5515000" />
+      <workItem from="1611302567331" duration="5859000" />
+      <workItem from="1611408562614" duration="411000" />
+      <workItem from="1611561836475" duration="7785000" />
+      <workItem from="1611570418294" duration="7800000" />
+      <workItem from="1611651086578" duration="3444000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="498" height="398" key="SwitcherDM" timestamp="1611573101844">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="498" height="454" key="SwitcherDM/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1611309288572" />
+    <state width="498" height="398" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1611573101844" />
+    <state x="418" y="189" key="run.anything.popup" timestamp="1611572852306">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="418" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1611572852306" />
+  </component>
+</project>
