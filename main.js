@@ -60,30 +60,28 @@ var imagePacman;
 var imagePacmanG;
 var imagePacmanD;
 var imagePacmanM;
+
 function endLoadMur() {	// Image du pac-man dans un tableau
-	imagePacman=loadImage([		"asset/sumoto1.png",
+	imagePacman = loadImage([		"asset/sumoto1.png",
 									"asset/sumoto2.png",
 	],)
-	 imagePacmanG = loadImage([		"asset/sumotoG1.png",
+	imagePacmanG = loadImage([		"asset/sumotoG1.png",
 										"asset/sumotoG2.png",
 	],)
-	imagePacmanM= loadImage(["asset/sumotoM.png"])
+	imagePacmanM = loadImage(["asset/sumotoM.png"])
 
 	imagePacmanD = loadImage([		"asset/sumotoD1.png",
 										"asset/sumotoD2.png",
 		],endLoadPacman);
-
-
-
 }
 
-var imageGost;
+var Ghost;
 function endLoadPacman() {// Image des fantomes dans un tableau
-	imageGost=loadImage([		"asset/ninjaD.png",
-								"asset/ninjaG.png",
-								"asset/ninjaM.png",],endLoadGost);
+	Ghost=loadImage([		"asset/ninja1D.png",
+								"asset/ninja1G.png",
+								"asset/ninja1M.png",],endLoadGhost);
 }
-function endLoadGost() {
+function endLoadGhost() {
 	
     document.getElementById("presentation").style.display="none";
 	document.getElementById("jeu").style.display="";					//Sélection des canvas selon un ID
@@ -96,8 +94,10 @@ function endLoadGost() {
 	document.getElementById("canvas").style.display="";
 	
 	pacman.init(definitionLevel[level]);										//initialisation du pac man dans le niveau selectioner
-	gost.init(definitionLevel[level]);											//initialisation des fantomes dans le niveau selectioner
-	gost2.init(definitionLevel[level]);											//initialisation des fantomes dans le niveau selectioner
+	Ghost1.init(definitionLevel[level]);		//initialisation des fantomes dans le niveau selectioner
+	Ghost2.init(definitionLevel[level]);
+	Ghost3.init(definitionLevel[level]);		//initialisation des fantomes dans le niveau selectioner
+	Ghost4.init(definitionLevel[level]);//initialisation des fantomes dans le niveau selectioner
 	createPillules(definitionLevel[level].labyrinthe,definitionLevel[level].startX,definitionLevel[level].startY);	//création des pillules
 
 	loopMain(); //lancement de la fonction loopmain
@@ -107,8 +107,10 @@ function loopMain() {
 
 	var nbPillule=drawLaby(definitionLevel[level].labyrinthe);	//definition du nombre de pilule par le nombre de case disponible atteignable
 	pacman.update(definitionLevel[level]);
-	gost.update(definitionLevel[level]);
-	gost2.update(definitionLevel[level]);
+	Ghost1.update(definitionLevel[level]);
+	Ghost2.update(definitionLevel[level]);
+	Ghost3.update(definitionLevel[level]);
+	Ghost4.update(definitionLevel[level]);
 
 	if(pacman.mort) {
 
@@ -312,67 +314,7 @@ function createPillules(laby,x,y) {//Mise en place des pills
 	if(!(laby[y][x]&8) && !(laby[y][x-1]&(1<<4))) createPillules(laby,x-1,y);
 }
 
-var gost={//Statistique et emplacement des fantomes
-	
-	x:0,
-	y:0,
-	direction:4,		//choix de la direction
-	vitesse:2,			//choix de la vitesse
-	
-	init(paramLevel) {
-		this.x=12*tailleCelluleLaby;//position x de départ
-		this.y=9*tailleCelluleLaby;//position y de départ
-	},
-	
-	update(paramLevel) {
-				
-		if((this.x%tailleCelluleLaby)<this.vitesse && (this.y%tailleCelluleLaby)<this.vitesse) {
-			if(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
-				while(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
-					this.direction=2**Math.floor(Math.random()*4);
-				}
-			} else {
-				var demiTour=(this.direction<<2);if(demiTour>15) demiTour>>=4;
-				this.direction=2**Math.floor(Math.random()*4);
-				while(this.direction==demiTour || paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
-					this.direction=2**Math.floor(Math.random()*4);
-				}
-			}
-			this.x=(parseInt(this.x/tailleCelluleLaby))*tailleCelluleLaby;
-			this.y=(parseInt(this.y/tailleCelluleLaby))*tailleCelluleLaby;
-		}
-		switch(this.direction) {
-			case 1:
-			 this.y-=this.vitesse;
-			 break;
-			case 2:
-			 this.x+=this.vitesse;
-			 break;
-			case 4:
-			 this.y+=this.vitesse;
-			 break;
-			case 8:
-			 this.x-=this.vitesse;
-			 break;
-		}
-
-		canvasContext.save();
-		canvasContext.drawImage(imageGost[0],
-								0,0,tailleCelluleLaby,tailleCelluleLaby,
-								this.x,this.y,tailleCelluleLaby,tailleCelluleLaby);
-		canvasContext.restore();
-
-
-		var dx=this.x-pacman.x;
-		var dy=this.y-pacman.y;
-
-		if( ((dx**2)+(dy**2)) < distanceCollision) {
-			pacman.mort = true;
-			}
-	},
-};
-
-var gost2={//Statistique et emplacement des fantomes
+var Ghost1={//Statistique et emplacement des fantomes
 
 	x:0,
 	y:0,
@@ -404,20 +346,205 @@ var gost2={//Statistique et emplacement des fantomes
 		switch(this.direction) {
 			case 1:
 				this.y-=this.vitesse;
+				this.anime = 2;
 				break;
 			case 2:
 				this.x+=this.vitesse;
+				this.anime = 1;
 				break;
 			case 4:
 				this.y+=this.vitesse;
+				this.anime = 0;
 				break;
 			case 8:
 				this.x-=this.vitesse;
+				this.anime = 0;
+				break;
+		}
+		canvasContext.save();
+		canvasContext.drawImage(Ghost[this.anime],
+			0,0,tailleCelluleLaby,tailleCelluleLaby,
+			this.x,this.y,tailleCelluleLaby,tailleCelluleLaby);
+		canvasContext.restore();
+		var dx=this.x-pacman.x;
+		var dy=this.y-pacman.y;
+
+		if( ((dx**2)+(dy**2)) < distanceCollision){
+			pacman.mort=true;
+		}
+	},
+};
+var Ghost2={//Statistique et emplacement des fantomes
+
+	x:0,
+	y:0,
+	direction:4,		//choix de la direction
+	vitesse:2,			//choix de la vitesse
+
+	init(paramLevel) {
+		this.x=12*tailleCelluleLaby;//position x de départ
+		this.y=9*tailleCelluleLaby;//position y de départ
+	},
+
+	update(paramLevel) {
+
+		if((this.x%tailleCelluleLaby)<this.vitesse && (this.y%tailleCelluleLaby)<this.vitesse) {
+			if(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+				while(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+					this.direction=2**Math.floor(Math.random()*4);
+				}
+			} else {
+				var demiTour=(this.direction<<2);if(demiTour>15) demiTour>>=4;
+				this.direction=2**Math.floor(Math.random()*4);
+				while(this.direction==demiTour || paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+					this.direction=2**Math.floor(Math.random()*4);
+				}
+			}
+			this.x=(parseInt(this.x/tailleCelluleLaby))*tailleCelluleLaby;
+			this.y=(parseInt(this.y/tailleCelluleLaby))*tailleCelluleLaby;
+		}
+		switch(this.direction) {
+			case 1:
+				this.y-=this.vitesse;
+				this.anime = 2;
+				break;
+			case 2:
+				this.x+=this.vitesse;
+				this.anime = 1;
+				break;
+			case 4:
+				this.y+=this.vitesse;
+				this.anime = 0;
+				break;
+			case 8:
+				this.x-=this.vitesse;
+				this.anime = 0;
+				break;
+		}
+		canvasContext.save();
+		canvasContext.drawImage(Ghost[this.anime],
+			0,0,tailleCelluleLaby,tailleCelluleLaby,
+			this.x,this.y,tailleCelluleLaby,tailleCelluleLaby);
+		canvasContext.restore();
+		var dx=this.x-pacman.x;
+		var dy=this.y-pacman.y;
+
+		if( ((dx**2)+(dy**2)) < distanceCollision){
+			pacman.mort=true;
+		}
+	},
+};
+var Ghost3={//Statistique et emplacement des fantomes
+
+	x:0,
+	y:0,
+	direction:4,		//choix de la direction
+	vitesse:2,			//choix de la vitesse
+
+	init(paramLevel) {
+		this.x=12*tailleCelluleLaby;//position x de départ
+		this.y=9*tailleCelluleLaby;//position y de départ
+	},
+
+	update(paramLevel) {
+
+		if((this.x%tailleCelluleLaby)<this.vitesse && (this.y%tailleCelluleLaby)<this.vitesse) {
+			if(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+				while(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+					this.direction=2**Math.floor(Math.random()*4);
+				}
+			} else {
+				var demiTour=(this.direction<<2);if(demiTour>15) demiTour>>=4;
+				this.direction=2**Math.floor(Math.random()*4);
+				while(this.direction==demiTour || paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+					this.direction=2**Math.floor(Math.random()*4);
+				}
+			}
+			this.x=(parseInt(this.x/tailleCelluleLaby))*tailleCelluleLaby;
+			this.y=(parseInt(this.y/tailleCelluleLaby))*tailleCelluleLaby;
+		}
+		switch(this.direction) {
+			case 1:
+				this.y-=this.vitesse;
+				this.anime = 2;
+				break;
+			case 2:
+				this.x+=this.vitesse;
+				this.anime = 1;
+				break;
+			case 4:
+				this.y+=this.vitesse;
+				this.anime = 0;
+				break;
+			case 8:
+				this.x-=this.vitesse;
+				this.anime = 0;
 				break;
 		}
 
 		canvasContext.save();
-		canvasContext.drawImage(imageGost[0],
+		canvasContext.drawImage(Ghost[this.anime],
+			0,0,tailleCelluleLaby,tailleCelluleLaby,
+			this.x,this.y,tailleCelluleLaby,tailleCelluleLaby);
+		canvasContext.restore();
+		var dx=this.x-pacman.x;
+		var dy=this.y-pacman.y;
+
+		if( ((dx**2)+(dy**2)) < distanceCollision){
+			pacman.mort=true;
+		}
+	},
+};
+var Ghost4={//Statistique et emplacement des fantomes
+
+	x:0,
+	y:0,
+	direction:4,		//choix de la direction
+	vitesse:2,			//choix de la vitesse
+	anime:0,
+	init(paramLevel) {
+		this.x=12*tailleCelluleLaby;//position x de départ
+		this.y=9*tailleCelluleLaby;//position y de départ
+	},
+
+	update(paramLevel) {
+
+		if((this.x%tailleCelluleLaby)<this.vitesse && (this.y%tailleCelluleLaby)<this.vitesse) {
+			if(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+				while(paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+					this.direction=2**Math.floor(Math.random()*4);
+				}
+			} else {
+				var demiTour=(this.direction<<2);if(demiTour>15) demiTour>>=4;
+				this.direction=2**Math.floor(Math.random()*4);
+				while(this.direction==demiTour || paramLevel.labyrinthe[parseInt(this.y/tailleCelluleLaby)][parseInt(this.x/tailleCelluleLaby)]&this.direction) {
+					this.direction=2**Math.floor(Math.random()*4);
+				}
+			}
+			this.x=(parseInt(this.x/tailleCelluleLaby))*tailleCelluleLaby;
+			this.y=(parseInt(this.y/tailleCelluleLaby))*tailleCelluleLaby;
+		}
+		switch(this.direction) {
+			case 1:
+				this.y-=this.vitesse;
+				this.anime = 2;
+				break;
+			case 2:
+				this.x+=this.vitesse;
+				this.anime = 1;
+				break;
+			case 4:
+				this.y+=this.vitesse;
+				this.anime = 0;
+				break;
+			case 8:
+				this.x-=this.vitesse;
+				this.anime = 0;
+				break;
+		}
+
+		canvasContext.save();
+		canvasContext.drawImage(Ghost[this.anime],
 			0,0,tailleCelluleLaby,tailleCelluleLaby,
 			this.x,this.y,tailleCelluleLaby,tailleCelluleLaby);
 		canvasContext.restore();
