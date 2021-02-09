@@ -7,12 +7,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1nKFT9iblCoGOLD1U7IHIPtiJf7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -36,7 +45,10 @@
       <workItem from="1611408562614" duration="411000" />
       <workItem from="1611561836475" duration="7785000" />
       <workItem from="1611570418294" duration="7800000" />
-      <workItem from="1611651086578" duration="3444000" />
+      <workItem from="1611651086578" duration="4666000" />
+      <workItem from="1611761044450" duration="753000" />
+      <workItem from="1611850425913" duration="11575000" />
+      <workItem from="1612880365028" duration="2146000" />
     </task>
     <servers />
   </component>
@@ -49,9 +61,9 @@
     </state>
     <state width="498" height="454" key="SwitcherDM/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1611309288572" />
     <state width="498" height="398" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1611573101844" />
-    <state x="418" y="189" key="run.anything.popup" timestamp="1611572852306">
+    <state x="418" y="189" key="run.anything.popup" timestamp="1611909980156">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="418" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1611572852306" />
+    <state x="418" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1611909980156" />
   </component>
 </project>

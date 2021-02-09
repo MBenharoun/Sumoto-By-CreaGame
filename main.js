@@ -38,22 +38,23 @@ var imageMur;// Variable des murs
 
 function start() //télechargement des assets des murs dans un tableau
 {
-    imageMur=loadImage([	"asset/00.jpg",
-							"asset/01.jpg",
-							"asset/02.jpg",
-							"asset/03.jpg",
-							"asset/04.jpg",
-							"asset/05.jpg",
-							"asset/06.jpg",
-							"asset/07.jpg",
-							"asset/08.jpg",
-							"asset/09.jpg",
-							"asset/10.jpg",
-							"asset/11.jpg",
-							"asset/12.jpg",
-							"asset/13.jpg",
-							"asset/14.jpg",
-							"asset/15.jpg"],endLoadMur);
+    imageMur=loadImage([
+    						"asset/mur.png",
+							"asset/1.png",
+							"asset/2.png",
+							"asset/3.png",
+							"asset/4.png",
+							"asset/5.png",
+							"asset/6.png",
+							"asset/7.png",
+							"asset/8.png",
+							"asset/9.png",
+							"asset/10.png",
+							"asset/11.png",
+							"asset/12.png",
+							"asset/13.png",
+							"asset/14.png",
+							"asset/15.png"],endLoadMur);
 }
 
 var imagePacman;
@@ -119,7 +120,8 @@ function loopMain() {
 		document.getElementById("message").innerHTML=pacman.nbVie;
 		if (pacman.nbVie == 0)
 		{
-			alert("Game Over")
+
+			onDeath();
 			return;
 		}
 
@@ -556,3 +558,12 @@ var Ghost4={//Statistique et emplacement des fantomes
 		}
 	},
 };
+function onDeath(){
+	open('death.html',"_self");
+}
+function restart(){
+	open('index.html',"_self");
+}
+function credit(){
+	open('credit.html',"_self");
+}
