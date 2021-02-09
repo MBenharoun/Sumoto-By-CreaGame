@@ -562,8 +562,8 @@ function onDeath(){
 	open('death.html',"_self");
 }
 function restart(){
-	open('index.html',"_self");
+	open('game.html',"_self");
 }
 function credit(){
-	open('credit.html',"_self");
+	open('index.html',"_self");
 }
