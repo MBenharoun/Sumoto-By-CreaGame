@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64fd7f1e-f158-43ab-9e12-7ca664d3672d" name="Default Changelist" comment="" />
+    <list default="true" id="64fd7f1e-f158-43ab-9e12-7ca664d3672d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +16,9 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nKFT9iblCoGOLD1U7IHIPtiJf7" />
   <component name="ProjectViewState">
@@ -49,6 +54,7 @@
       <workItem from="1611761044450" duration="753000" />
       <workItem from="1611850425913" duration="11575000" />
       <workItem from="1612880365028" duration="2146000" />
+      <workItem from="1612888345718" duration="15000" />
     </task>
     <servers />
   </component>

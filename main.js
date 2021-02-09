@@ -39,7 +39,7 @@ var imageMur;// Variable des murs
 function start() //télechargement des assets des murs dans un tableau
 {
     imageMur=loadImage([
-    						"asset/mur.png",
+    						"asset/Mur.png",
 							"asset/1.png",
 							"asset/2.png",
 							"asset/3.png",
