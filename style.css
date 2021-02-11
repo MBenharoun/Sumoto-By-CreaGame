@@ -41,3 +41,17 @@ html,body
 	width:100%;
 	height:100%;
 }
+.gamemenu .start
+{
+	position: absolute;
+	top: 550px;
+	left: 15px;
+	font-family: fantasy;;
+	color: black;
+	border: white;
+	font-size: x-large;
+}
+.gamemenu img {
+	position: absolute;
+
+}

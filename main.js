@@ -10,8 +10,9 @@ const canvasWidth=largeurLaby*tailleCelluleLaby;	//Largeur du canvas
 const canvasHeight=hauteurLaby*tailleCelluleLaby;	//Hauteur du canvas
  var canvasContext;
  var choix = null;
-
-var laby1 =[[ '9', '5', '5', '5', '5', '5', '3', '1', '1', '1', '9',' 5', '5', '5', '3', '1', '1', '1', '9', '5', '5', '5', '5', '5', '3'],              //1
+var imageStart = new Image()
+imageStart.src = "asset/startgame.gif"
+var laby1 =[[ '9', '5', '5', '5', '5', '5', '3', '0', '0', '0', '9',' 5', '5', '5', '3', '0', '0', '0', '9', '5', '5', '5', '5', '5', '3'],              //1
 			['10',"0 ", "0", "0", "0", "0",'10', "0", "0",' 9',' 6',' 0',' 0', '0','12', '3', '0', '0','10', '0', '0', '0', '0' ,'0','10'],              //2
 			[ '8', '5', '7', '0','13', '5', '2', '0', '9', '6', '0', '0', '0', '0', '0','12', '3', '0', '8', '5', '5', '5', '5', '5', '2'],              //3
 			['10', '0', '0', '0', '0', '0','10',' 0','10', '0', '0', '0', '0', '0', '0', '0','10', '0','10', '0', '0', '0', '0', '0','10'],              //4
@@ -19,13 +20,13 @@ var laby1 =[[ '9', '5', '5', '5', '5', '5', '3', '1', '1', '1', '9',' 5', '5', '
 			[ '8', '5', '5', '5', '1', '5', '2', '0','10', '0','10','0 ', '0', '0','10', '0','10', '0', '8', '5', '1', '7',' 0','13', '2'],              //6
 			['10', '0', '0', '0','10',' 0', '8', '5', '4', '1', '4', '3','0 ', '9', '4', '1', '4', '5', '2',' 0','10', '0', '0', '0','10'],              //7
 			['10', '0', '0', '0','10',' 0','10', '0',' 0','10', '0','12',' 5',' 6', '0','10',' 0',' 0','10',' 0','10',' 0', '0',' 0','10'],              //8
-			['10', '0', '0', '0','10', '0','10', '0', '0','10', '0', '9',' 0',' 3', '0','10',' 0',' 0','10',' 0','10',' 0',' 0',' 0','10'],              //9
+			['10', '0', '0', '0','10', '0','10', '0', '0','10', '0', '9',' 4',' 3', '0','10',' 0',' 0','10',' 0','10',' 0',' 0',' 0','10'],              //9
 			['10','0 ', '0', '0','10', '0','10',' 0',' 0','10', '0','12',' 4',' 6', '0','10',' 0',' 0','10',' 0','10',' 0',' 0',' 0','10'],              //10
 			[ '8', '7','0 ','13',' 4',' 5',' 2', '0', '0','10', '0', '9', '5',' 3', '0','10', '0',' 0',' 8',' 5',' 4',' 5',' 5', '5', '2'],              //11
 			['10','0 ', '0', '0',' 0',' 0',' 8',' 5',' 1',' 4',' 1',' 6',' 0','12', '1',' 4',' 1', '5',' 2','0 ',' 0',' 0',' 0',' 0','10'],              //12
 			[ '8', '5', '5', '5', '5', '5', '2',' 0','10', '0','10',' 0',' 0',' 0','10','0 ','10','0' , '8',' 5',' 7', '0','13',' 5', '2'],              //13
 			['10', '0', '0', '0',' 0', '0','10', '0','10', '0','12',' 3', '0', '9',' 6','0 ','10','0 ','10','0 ',' 0',' 0',' 0', '0','10'],              //14
-			['12', '5', '5', '5', '5',' 5',' 4',' 5',' 4', '7', '4','12',' 5',' 6', '4','13',' 4',' 5',' 4',' 5',' 5',' 5', '5',' 5',' 6'],				 //15
+			['12', '5', '5', '5', '5',' 5',' 4',' 5',' 4', '7', '0','12',' 5',' 6', '0','13',' 4',' 5',' 4',' 5',' 5',' 5', '5',' 5',' 6'],				 //15
 		   ]; //Niveau 1
 
 var level=0; // variable du choix de niveau
@@ -82,7 +83,15 @@ function endLoadPacman() {// Image des fantomes dans un tableau
 								"asset/ninja1G.png",
 								"asset/ninja1M.png",],endLoadGhost);
 }
+var Bonus
 function endLoadGhost() {
+	Bonus = loadImage([
+		"asset/sushi1.png",
+		"asset/sushi2.png",
+
+	],endloadbonus);
+}
+function endloadbonus() {
 	
     document.getElementById("presentation").style.display="none";
 	document.getElementById("jeu").style.display="";					//Sélection des canvas selon un ID
@@ -112,7 +121,7 @@ function loopMain() {
 	Ghost2.update(definitionLevel[level]);
 	Ghost3.update(definitionLevel[level]);
 	Ghost4.update(definitionLevel[level]);
-
+	// spawnBonus();
 	if(pacman.mort) {
 
 		pacman.nbVie -= 1;
@@ -120,7 +129,6 @@ function loopMain() {
 		document.getElementById("message").innerHTML=pacman.nbVie;
 		if (pacman.nbVie == 0)
 		{
-
 			onDeath();
 			return;
 		}
@@ -562,8 +570,23 @@ function onDeath(){
 	open('death.html',"_self");
 }
 function restart(){
+
 	open('game.html',"_self");
+}
+function startG(){
+	open("start.html","_self");
+
 }
 function credit(){
 	open('index.html',"_self");
+}
+function spawnBonus(){
+	var canvas=document.getElementById("canvas");
+	ctx=canvas.getContext("2d")
+	Max = Bonus.length + 1;
+	rand = Math.random(0,2)
+	Xpos = 12*tailleCelluleLaby;
+	Ypos = 10*tailleCelluleLaby;
+	ctx.drawImage(Bonus[0],600,500);
+
 }
