@@ -139,6 +139,11 @@ function loopMain() {
 	if(!nbPillule || pacman.mort) {//si le nombre de pillue disponible est egale a 0 relancement
 		pacman.mort = false
 		pacman.init(definitionLevel[level]);
+		Ghost1.init(definitionLevel[level]);		//initialisation des fantomes dans le niveau selectioner
+		Ghost2.init(definitionLevel[level]);
+		Ghost3.init(definitionLevel[level]);		//initialisation des fantomes dans le niveau selectioner
+		Ghost4.init(definitionLevel[level]);
+		setTimeout(newLevel(),3000)
 		createPillules(definitionLevel[level].labyrinthe,definitionLevel[level].startX,definitionLevel[level].startY);
 	}
 	document.getElementById("score").innerHTML=score;
@@ -590,5 +595,8 @@ function spawnBonus(){
 	Xpos = 12*tailleCelluleLaby;
 	Ypos = 10*tailleCelluleLaby;
 	ctx.drawImage(Bonus[0],600,500);
+
+}
+function newLevel(){
 
 }
