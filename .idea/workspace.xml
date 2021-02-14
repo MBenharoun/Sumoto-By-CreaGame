@@ -21,12 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="64fd7f1e-f158-43ab-9e12-7ca664d3672d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/Ninja_vulnérable_dos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/Ninja_vulnérable_droit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/Ninja_vulnérable_gauche.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/ninjaD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/ninjaG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/ninjaM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/death.html" beforeDir="false" afterPath="$PROJECT_DIR$/death.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +80,7 @@
       <workItem from="1613129185435" duration="3210000" />
       <workItem from="1613140106740" duration="188000" />
       <workItem from="1613219300290" duration="490000" />
+      <workItem from="1613324659886" duration="211000" />
     </task>
     <servers />
   </component>

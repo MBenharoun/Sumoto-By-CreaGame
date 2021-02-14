@@ -11,7 +11,7 @@ html,body
 {
 	position:fixed;
 	top:25%;
-	left:30%;
+	left:14%;
 }
 
 #presentation 
@@ -68,4 +68,23 @@ html,body
 	position: fixed;
 	top: 25%;
 	left: 30%;
+}
+.gamemenu .restart{
+	position: fixed;
+	top: 72%;
+	left: 32%;
+	font-family: fantasy;;
+	color: black;
+	border: white;
+	font-size: x-large;
+}
+.gamemenu .quit{
+	position: fixed;
+	top: 72%;
+	left: 64%;
+
+	font-family: fantasy;;
+	color: black;
+	border: white;
+	font-size: x-large;
 }
