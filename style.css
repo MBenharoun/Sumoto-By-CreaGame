@@ -10,8 +10,8 @@ html,body
 #canvas
 {
 	position:fixed;
-	top:5%;
-	left:7%;
+	top:25%;
+	left:30%;
 }
 
 #presentation 
@@ -44,8 +44,8 @@ html,body
 .gamemenu .start
 {
 	position: fixed;
-	top: 79%;
-	left: 23%;
+	top: 72%;
+	left: 32%;
 	font-family: fantasy;;
 	color: black;
 	border: white;
@@ -53,19 +53,19 @@ html,body
 }
 .gamemenu .titre{
 	position: fixed;
-	top: 20%;
-	left: 23%;
+	top: 37%;
+	left: 32%;
 	width: 15%;
 	z-index: 1;
 }
 .gamemenu .startmenu {
 	position: fixed;
-	top: 15%;
-	left: 21%;
+	top: 25%;
+	left: 30%;
 }
 
 .startgame{
 	position: fixed;
-	top: 15%;
-	left: 21%;
+	top: 25%;
+	left: 30%;
 }
