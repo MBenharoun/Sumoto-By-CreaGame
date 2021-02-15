@@ -10,8 +10,8 @@ html,body
 #canvas
 {
 	position:fixed;
-	top:25%;
-	left:14%;
+	top:15%;
+	left:23%;
 }
 
 #presentation 
@@ -53,9 +53,9 @@ html,body
 }
 .gamemenu .titre{
 	position: fixed;
-	top: 37%;
-	left: 32%;
-	width: 15%;
+	top: 28%%;
+	left: 30%;
+	width: 12%;
 	z-index: 1;
 }
 .gamemenu .startmenu {
